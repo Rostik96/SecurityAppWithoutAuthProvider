@@ -5,6 +5,9 @@ import java.util.Collections;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.rost.models.Principal;
 import lombok.Getter;
@@ -14,6 +17,7 @@ import lombok.RequiredArgsConstructor;
 @Getter
 public class UserDetailsImpl implements UserDetails {
     private final Principal principal;
+    private final PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -22,7 +26,7 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public String getPassword() {
-        return principal.getPassword();
+        return encoder.encode(principal.getPassword());
     }
 
     @Override
