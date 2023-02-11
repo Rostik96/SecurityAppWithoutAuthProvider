@@ -20,31 +20,31 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public String getPassword() {
-        return null;
+        return principal.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return null;
+        return principal.getName();
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true; //stub
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true; //stub
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true; //stub
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true; //stub
     }
 }
