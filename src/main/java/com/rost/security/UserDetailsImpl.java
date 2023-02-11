@@ -9,7 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.rost.models.Principal;
 import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
+@RequiredArgsConstructor(staticName = "of")
 public class UserDetailsImpl implements UserDetails {
     private final Principal principal;
 
