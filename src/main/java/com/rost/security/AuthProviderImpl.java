@@ -12,7 +12,9 @@ import org.springframework.stereotype.Component;
 
 import com.rost.services.UserDetailsServiceImpl;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @RequiredArgsConstructor
 @Component
 public class AuthProviderImpl implements AuthenticationProvider {
@@ -25,7 +27,7 @@ public class AuthProviderImpl implements AuthenticationProvider {
         UserDetails userDetails = userDetailsService.loadUserByUsername(username);
         if (!password.equals(userDetails.getPassword()))
             throw new BadCredentialsException("Incorrect password");
-
+        log.info("Success logging in for {}", username);
         return new UsernamePasswordAuthenticationToken(
                 userDetails,
                 password,
@@ -35,6 +37,6 @@ public class AuthProviderImpl implements AuthenticationProvider {
 
     @Override
     public boolean supports(Class<?> authentication) {
-        return false;
+        return true;
     }
 }
