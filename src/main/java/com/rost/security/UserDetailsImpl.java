@@ -7,9 +7,11 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.rost.models.Principal;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor(staticName = "of")
+@Getter
 public class UserDetailsImpl implements UserDetails {
     private final Principal principal;
 
