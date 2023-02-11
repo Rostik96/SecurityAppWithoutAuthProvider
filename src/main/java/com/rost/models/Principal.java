@@ -2,16 +2,14 @@ package com.rost.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
 @Entity
-@Table(name = "\"user\"")
-public class User {
+public class Principal {
     @Id
     private long id;
-    @NotEmpty
+    @NotEmpty(message = "Name should not be empty")
     @Size(min = 2, message = "Name should be greater than 2 characters")
     private String name;
     private String password;

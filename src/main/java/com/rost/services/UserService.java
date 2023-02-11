@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.rost.models.User;
+import com.rost.models.Principal;
 import com.rost.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 
@@ -13,7 +13,7 @@ import lombok.RequiredArgsConstructor;
 public class UserService {
     private final UserRepository userRepository;
 
-    public List<User> readAll() {
+    public List<Principal> readAll() {
         return userRepository.findAll();
     }
 }
