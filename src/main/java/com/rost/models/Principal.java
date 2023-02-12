@@ -13,6 +13,6 @@ public class Principal {
     private long id;
     @NotEmpty(message = "Name should not be empty")
     @Size(min = 2, message = "Name should be greater than 2 characters")
-    private String name;
+    private String username;
     private String password;
 }
