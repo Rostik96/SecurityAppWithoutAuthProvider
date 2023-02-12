@@ -9,5 +9,5 @@ import com.rost.models.Principal;
 
 @Repository
 public interface PrincipalRepository extends JpaRepository<Principal, Long> {
-    Optional<Principal> findByName(String username);
+    Optional<Principal> findByUsername(String username);
 }
