@@ -10,7 +10,8 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http.csrf().disable()
-                .authorizeHttpRequests().anyRequest().authenticated()
+                .formLogin().defaultSuccessUrl("/show-user-info", true)
+                .and().authorizeHttpRequests().anyRequest().authenticated()
                 .and().build();
     }
 }
