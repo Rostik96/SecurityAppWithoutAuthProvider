@@ -6,13 +6,14 @@ import java.util.Collections;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.rost.models.Principal;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j(topic = "Getting Password")
 @RequiredArgsConstructor(staticName = "of")
 @Getter
 public class UserDetailsImpl implements UserDetails {
@@ -26,6 +27,7 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public String getPassword() {
+        log.info("providing the password: \"{}\"", principal.getPassword());
         return encoder.encode(principal.getPassword());
     }
 
