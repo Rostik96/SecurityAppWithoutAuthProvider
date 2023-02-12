@@ -72,4 +72,9 @@ public class UserDetailsImpl implements UserDetails {
     public boolean isEnabled() {
         return true; //stub
     }
+
+    @Override
+    public String toString() {
+        return String.format("user: %s; authorities: %s", getUsername(), getAuthorities().isEmpty() ? "no" : getAuthorities());
+    }
 }
